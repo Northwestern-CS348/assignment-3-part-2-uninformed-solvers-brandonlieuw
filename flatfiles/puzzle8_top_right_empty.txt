@@ -17,3 +17,20 @@ fact: (pred obj1 obj2)
 rule: ((pred obj1 obj2) (pred obj2 obj3)) -> (pred obj1 obj3)
 
 """
+
+fact: (cord tile5 0 0)
+fact: (cord tile4 1 0)
+fact: (cord empty 2 0)
+
+fact: (cord tile6 0 1)
+fact: (cord tile1 1 1)
+fact: (cord tile8 2 1)
+
+fact: (cord tile7 0 2)
+fact: (cord tile3 1 2)
+fact: (cord tile2 2 2)
+
+rule: ((cord ?tile ?x 1) (cord empty ?x ?y)) -> (movable ?tile ?x 1 ?x ?y)
+rule: ((cord ?tile 1 ?y) (cord empty ?x ?y)) -> (movable ?tile 1 ?y ?x ?y)
+rule: ((cord empty ?x 1) (cord ?tile ?x ?y)) -> (movable ?tile ?x ?y ?x 1)
+rule: ((cord empty 1 ?y) (cord ?tile ?x ?y)) -> (movable ?tile ?x ?y 1 ?y)
